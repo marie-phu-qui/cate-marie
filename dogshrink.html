@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dogs and llamas</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+ 
+  <body>
+    <div class="header">
+      <h1>Find the llama</h1>
+      <p>Click on the dog to turn them into a puppy, or else...</p>
+    </div>
+    <div id="dogPlayground">
+    </div>
+    <script>
+      var dogArray = [
+        'https://s-media-cache-ak0.pinimg.com/originals/b6/f7/e4/b6f7e4a32a8edcabcfd070a33036f5ed.jpg',
+        "https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg",
+        'http://1857el3tlg4r2uc4w82vmnbh.wpengine.netdna-cdn.com/wp-content/uploads/2016/06/Dachshund-6.jpg',
+        'https://metrouk2.files.wordpress.com/2016/06/118199537.jpg?w=748&h=500&crop=1',
+        'https://i0.wp.com/images.mylot.com/userImages/images/postphotos/2308354.jpg'
+      ]
+      for (var i = 0; i < 24; i++) {
+        var image = dogArray[Math.floor(Math.random() * dogArray.length)]
+        document.getElementById('dogPlayground').innerHTML += `<img class="adult" src="${image}"
+        />`
+      }
+      function makeSmall (e) {
+        console.log("clicked")
+          var llamaArray = [ 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2C707mDglHbYZdTqMvITwuUCHqoc9quCfpEWfHwSC8UZQMeZwCg',
+          'http://i0.kym-cdn.com/entries/icons/mobile/000/000/027/advicedog.jpg'] 
+          console.log(e.target)
+            var image2 = llamaArray[Math.floor(Math.random() * llamaArray.length)] 
+            console.log(image2)
+            e.target.src = image2
+  
+      }
+
+      var dogs = document.getElementsByClassName('adult')
+      for (var i = 0; i < dogs.length; i++) {
+        dogs[i].addEventListener('click', makeSmall)
+      }
+      // document.getElementById('image1').addEventListener('click', makeSmall)
+      // document.getElementById('image2').addEventListener('click', makeSmall)
+    </script>
+  </body>
+
+</html>
